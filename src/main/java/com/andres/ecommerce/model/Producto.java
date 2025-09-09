@@ -1,6 +1,14 @@
 package com.andres.ecommerce.model;
 
+import jakarta.persistence.*;
+
+
+@Entity
+@Table(name = "productos")
 public class Producto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer id;
     private String nombre;
     private String descripcion;
@@ -8,14 +16,18 @@ public class Producto {
     private double precio;
     private int cantidad;
 
+    @ManyToOne
+    private Usuario usuario;
+
 
     public Producto() {
     }
 
-    public Producto(Integer id, int cantidad, double precio, String imagen, String descripcion, String nombre) {
+    public Producto(Integer id, Usuario usuario, double precio, int cantidad, String imagen, String descripcion, String nombre) {
         this.id = id;
-        this.cantidad = cantidad;
+        this.usuario = usuario;
         this.precio = precio;
+        this.cantidad = cantidad;
         this.imagen = imagen;
         this.descripcion = descripcion;
         this.nombre = nombre;
@@ -67,6 +79,14 @@ public class Producto {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override
