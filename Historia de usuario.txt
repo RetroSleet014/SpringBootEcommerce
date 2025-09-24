@@ -1,0 +1,66 @@
+Folio UH-03 Panel de usuario
+Yo como usuario registrado quiero que el panel de usuario me permita visualizar y gestionar mi información perosnal y mis pedidos, para tener control y seguimiento de mis compras en el ecommerce.
+Criterios de aceptación:
+-Cuando acceda al panel, puedo ver mis datos personales, historial de compras y métodos de pago guardados.
+-Cuando actualice mi información (dirección, correo, contraseña), el sistema guardará correctamente los cambios y me mostrará un mensaje de confirmación "Sus datos se actualizaron correctamente".
+-Cuando consulte mis pedidos, el panel mostrará el estado actual (pendiente, enviado, entregado, cancelado).
+-Cuando ocurra un error al cargar información, el sistema me mostrará un mensaje claro de que no se puede recuperar o cargar la información en ese momento.
+
+-Colecciones de datos:
+Usuarios: para almacenar y gestionar la información personal.
+
+Pedidos: para registrar los pedidos del usuario, con su estado y detalle. 
+
+-Atributos y clases:
+Usuario:
+-idUsuario (PK)
+-nombre
+-apellido
+-correo electrónico
+-contraseña (encriptada)
+-teléfono
+-fechaRegistro
+-estadoCuenta (activo, bloqueado, etc.)
++verPedidos()
++actualizarDatos()
+
+Dirección:
+-idDireccion (PK)
+-idUsuario (FK)
+-calle
+-número
+-ciudad
+-estado/provincia
+-códigoPostal
+-país
+-tipoDireccion (envío/facturación)
+
+Pedido:
+-idPedido (PK)
+-idUsuario (FK)
+-fechaPedido
+-estadoPedido (pendiente, pagado, enviado, entregado, cancelado)
+-total
+-métodoPago
+-métodoEnvio
++calcularTotal
++cambiarEstado()
+
+DetallePedido:
+-idDetalle (PK)
+-idPedido (FK)
+-idProducto (FK)
+-cantidad
+-precioUnitario
+-subtotal
++calcularSubtotal()
+
+Producto:
+-idProducto (PK)
+-nombre
+-descripción
+-precio
+-stockDisponible
+-categoría
+
+
