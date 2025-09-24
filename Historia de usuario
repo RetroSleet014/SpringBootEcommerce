@@ -11,7 +11,7 @@ Usuarios: para almacenar y gestionar la información personal.
 
 Pedidos: para registrar los pedidos del usuario, con su estado y detalle. 
 
--Atributos:
+-Atributos y clases:
 Usuario:
 -idUsuario (PK)
 -nombre
@@ -21,6 +21,8 @@ Usuario:
 -teléfono
 -fechaRegistro
 -estadoCuenta (activo, bloqueado, etc.)
++verPedidos()
++actualizarDatos()
 
 Dirección:
 -idDireccion (PK)
@@ -41,6 +43,8 @@ Pedido:
 -total
 -métodoPago
 -métodoEnvio
++calcularTotal
++cambiarEstado()
 
 DetallePedido:
 -idDetalle (PK)
@@ -49,6 +53,7 @@ DetallePedido:
 -cantidad
 -precioUnitario
 -subtotal
++calcularSubtotal()
 
 Producto:
 -idProducto (PK)
